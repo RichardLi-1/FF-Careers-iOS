@@ -10,20 +10,11 @@ import UIKit
 class TaskTableViewCell: UITableViewCell {
 
     
-    private var isChecked = false
     
-    @IBAction func checkboxTapped(_ sender: UIButton) {
-            isChecked.toggle()
-            let imageName = isChecked ? "checkmark.square.fill" : "square"
-            Check.setImage(UIImage(systemName: imageName), for: .normal)
-        }
+    @IBOutlet weak var checkboxButton: UIButton!
+    @IBOutlet weak var taskLabel: UILabel!
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskTableViewCell
-        cell.taskNameLabel.text = tasks[indexPath.row]
-        return cell
-    }
-    
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
